@@ -7,9 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../Components/appCheckBox.dart';
 import '../../Components/appCustomButton.dart';
 import '../../Components/appFormField.dart';
+import '../../Theme/colors.dart';
 import '../../Utils/utils.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -106,17 +106,48 @@ class _SignInScreenState extends State<SignInScreen> {
                           borderRadius: 4,
                         ),
                         size20h,
-                        AppCheckBox(
-                          txt: 'Keep me signed in',
-                          onChanged: (bool? value) {
-                            setState(() {
-                              isChecked = value!;
-                              authenCtrl.isCheckBox = value!;
-                              authenCtrl.update();
-                            });
-                          },
-                          isChecked: isChecked,
+                        Row(
+                          children: [
+                            SizedBox(
+                              height: 18.h,
+                              width: 18.w,
+                              child: Checkbox(
+                                checkColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5)),
+                                // fillColor:
+                                //     MaterialStateProperty.resolveWith(getColor),
+                                fillColor: MaterialStateProperty.resolveWith(
+                                    getFillColor),
+                                side:
+                                    BorderSide(width: 1.sp, color: Colors.grey),
+                                value: authenCtrl.isCheckBox,
+                                activeColor: primaryBlueColor,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    authenCtrl.isCheckBox = value!;
+                                    authenCtrl.update();
+                                  });
+                                },
+                              ),
+                            ),
+                            size10w,
+                            customText(
+                                text: 'Keep me signed in',
+                                textStyle: regular14NavyBlue),
+                          ],
                         ),
+                        // AppCheckBox(
+                        //   txt: 'Keep me signed in',
+                        //   onChanged: (bool? value) {
+                        //     setState(() {
+                        //       isChecked = value!;
+                        //       authenCtrl.isCheckBox = value!;
+                        //       authenCtrl.update();
+                        //     });
+                        //   },
+                        //   isChecked: isChecked,
+                        // ),
                         const Spacer(),
                         AppStyles.dividerLine(width: Get.width),
                         size30h,

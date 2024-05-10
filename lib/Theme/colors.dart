@@ -30,3 +30,14 @@ MaterialColor createMaterialColor(Color color) {
   });
   return MaterialColor(color.value, swatch);
 }
+
+Color getFillColor(Set<MaterialState> states) {
+  // Check if the checkbox is checked
+  if (states.contains(MaterialState.selected)) {
+    // If checked, return the active color
+    return primaryBlueColor;
+  } else {
+    // If not checked, return grey
+    return Colors.grey;
+  }
+}

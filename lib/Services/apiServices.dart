@@ -85,7 +85,6 @@ class ApiServices {
       // );
       return null;
     }).onError((error, stackTrace) async {
-      print('Error => $error');
       logger.e('StackTrace $stackTrace');
       // await ExceptionController().exceptionAlert(
       //   errorMsg: '$error',

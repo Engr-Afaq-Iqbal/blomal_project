@@ -57,8 +57,6 @@ class AuthController extends GetxController {
 
       loginModel = loginModelFromJson(_res);
       if (isCheckBox == true) {
-        print('Saving Token');
-        print('${loginModel?.data?.accessToken}');
         setToken('${loginModel?.data?.accessToken}');
       }
       Get.offAll(const AppBottomNavigationBar());
@@ -77,8 +75,6 @@ class AuthController extends GetxController {
     token = sharedPreferences.containsKey("token")
         ? sharedPreferences.getString("token")!
         : '';
-    print('Getting token0');
-    print(token);
   }
 
   setToken(
