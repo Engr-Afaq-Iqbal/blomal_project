@@ -11,13 +11,10 @@ class ApiServices {
       required String xRequestId,
       required String xRequestTimeStamp}) async {
     var headers = {
-      // 'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Accept-Language': 'en',
       'X-Request-Id': '$xRequestId',
       'X-Request-Timestamp': '$xRequestTimeStamp',
-
-      // 'Authorization': 'Bearer ${AppStorage.getUserToken()?.accessToken}'
     };
     var request = http.Request('GET', Uri.parse(feedUrl));
 
@@ -31,19 +28,10 @@ class ApiServices {
         return result;
       }
 
-      // await ExceptionController().exceptionAlert(
-      //   resBody: result,
-      //   exceptionFormat:
-      //       apiExceptionFormat('GET', feedUrl, response.statusCode, result),
-      // );
       return null;
     }).onError((error, stackTrace) async {
       logger.e('StackTrace $stackTrace');
-      // await ExceptionController().exceptionAlert(
-      //   errorMsg: '$error',
-      //   exceptionFormat:
-      //       methodExceptionFormat('GET', feedUrl, error, stackTrace),
-      // );
+
       return null;
     });
   }
@@ -78,19 +66,9 @@ class ApiServices {
         return result;
       }
 
-      // await ExceptionController().exceptionAlert(
-      //   resBody: result,
-      //   exceptionFormat:
-      //   apiExceptionFormat('POST', feedUrl, response.statusCode, result),
-      // );
       return null;
     }).onError((error, stackTrace) async {
       logger.e('StackTrace $stackTrace');
-      // await ExceptionController().exceptionAlert(
-      //   errorMsg: '$error',
-      //   exceptionFormat:
-      //   methodExceptionFormat('POST', feedUrl, error, stackTrace),
-      // );
       return null;
     });
   }

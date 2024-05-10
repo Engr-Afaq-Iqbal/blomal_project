@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 ThemeData appTheme = ThemeData(
   primaryColor: primaryBlueColor,
   colorScheme: ColorScheme.fromSwatch(
-    // primarySwatch: createMaterialColor(primaryColor),
-    primarySwatch: createMaterialColor(Color(int.parse('ff5271FB',
-        radix: 16))), // createMaterialColor(primaryColor),
+    primarySwatch: createMaterialColor(Color(int.parse('ff5271FB', radix: 16))),
   ).copyWith(
     background: const Color(0xffFFFFFF),
   ),
@@ -15,7 +13,6 @@ ThemeData appTheme = ThemeData(
   dialogBackgroundColor: Colors.white,
   useMaterial3: true,
   appBarTheme: const AppBarTheme(
-    // color: Colors.transparent,
     surfaceTintColor: Colors.transparent,
     elevation: 0.0,
   ),
